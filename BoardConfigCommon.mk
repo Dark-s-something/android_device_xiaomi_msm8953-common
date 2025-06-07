@@ -40,11 +40,8 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 BOARD_KERNEL_PAGESIZE :=  2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8953
-ifeq ($(TARGET_KERNEL_VERSION),4.9)
 BOARD_KERNEL_CMDLINE += androidboot.usbconfigfs=true
-endif
-TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-r416183b1
-TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
+TARGET_KERNEL_CONFIG := msm8953-perf_defconfig xiaomi/xiaomi.config
 TARGET_KERNEL_LLVM_BINUTILS := false
 
 # ANT
